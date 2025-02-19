@@ -1,3 +1,25 @@
+@import 'tailwindcss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities{
+  .navbar {
+    @apply bg-blue-300 w-full h-12 flex flex-row flex-nowrap items-center justify-start p-4 hover:bg-blue-400
+  }
+  .navbar-btn {
+    @apply text-2xl text-white hover:text-neutral-950
+  }
+  .task-container {
+    @apply flex flex-row flex-wrap p-6 gap-4
+  }
+  .task{
+    @apply w-1/5 h-32 flex flex-col flex-nowrap justify-around items-center rounded-lg
+  }
+}
+
+
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

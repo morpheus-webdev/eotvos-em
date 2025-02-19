@@ -5,12 +5,16 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 	return (
-		<nav style={{ backgroundColor: 'lightblue' }}>
+		<nav className='navbar'>
 			<Button>
-				<Link to='all-tasks'>All tasks</Link>
+				<Link className='navbar-btn' to='all-tasks'>
+					All tasks
+				</Link>
 			</Button>
 			<Button>
-				<Link to='new-task'>New task</Link>
+				<Link className='navbar-btn' to='new-task'>
+					New task
+				</Link>
 			</Button>
 		</nav>
 	);
