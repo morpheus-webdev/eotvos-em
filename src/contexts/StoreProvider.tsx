@@ -1,7 +1,7 @@
 //interface, defObj, context, provider
 
 import { createContext, ReactNode, useState } from 'react';
-import { defaultStores, IStore } from '../util/util';
+import { IStore } from '../util/util';
 
 interface IStoreContext {
 	stores: IStore[];
@@ -18,7 +18,7 @@ const defaultStoreContext: IStoreContext = {
 export const StoreContext = createContext<IStoreContext>(defaultStoreContext);
 
 export const StoreContextProvider = ({ children }: { children: ReactNode }) => {
-	const [stores, setStores] = useState<IStore[]>(defaultStores);
+	const [stores, setStores] = useState<IStore[]>([]);
 	function addStore(store: IStore) {
 		setStores([...stores, store]);
 	}

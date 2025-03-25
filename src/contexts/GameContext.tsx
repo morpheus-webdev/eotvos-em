@@ -1,7 +1,7 @@
 //4 dolog minden context-nél
 
-import { createContext, ReactNode, useState } from 'react';
-import { defaultGames, IGame } from '../util/util';
+import { createContext, ReactNode, useEffect, useState } from 'react';
+import { IGame } from '../util/util';
 
 //interface
 interface IGameContext {
@@ -22,9 +22,27 @@ export const GameContext = createContext<IGameContext>(defaultGameContext);
 
 //Provider
 export const GameContextProvider = ({ children }: { children: ReactNode }) => {
-	const [games, setGames] = useState<IGame[]>(defaultGames);
-	function addGame(newGame: IGame) {
-		setGames([...games, newGame]);
+	const [games, setGames] = useState<IGame[]>([]);
+	async function updateGames() {
+		let res = await fetch('/api/games').then((data) => data.json());
+		console.log(res);
+
+		setGames(res);
+	}
+	useEffect(() => {
+		updateGames();
+	}, []);
+	async function addGame(newGame: IGame) {
+		//setGames([...games, newGame]);
+		let res = await fetch('/api/games', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(newGame),
+		}).then((data) => data.json());
+		updateGames();
+		console.log(res);
 	}
 	function deleteGame(id: string) {
 		let newGameArr = games.filter((g, i) => {

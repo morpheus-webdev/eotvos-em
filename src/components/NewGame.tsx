@@ -9,7 +9,7 @@ export const NewGame = () => {
 	const [newGame, setNewGame] = useState<IGame>(defaultGame);
 	function handleAddGame() {
 		if (
-			newGame.name &&
+			newGame.title &&
 			newGame.lowestPrice &&
 			newGame.releaseDate &&
 			newGame.score
@@ -27,7 +27,7 @@ export const NewGame = () => {
 			<div className='flex flex-col flex-nowrap items-center w-1/2 gap-8'>
 				<TextField
 					placeholder='Game name...'
-					onChange={(e) => setNewGame({ ...newGame, name: e.target.value })}
+					onChange={(e) => setNewGame({ ...newGame, title: e.target.value })}
 				/>
 				<Select
 					value={newGame.genre}
@@ -51,7 +51,7 @@ export const NewGame = () => {
 					onChange={(e) =>
 						setNewGame({
 							...newGame,
-							releaseDate: new Date(e.target.value),
+							releaseDate: new Date(e.target.value).toISOString(),
 						})
 					}
 				/>

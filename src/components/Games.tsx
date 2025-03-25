@@ -17,10 +17,10 @@ const GameComp = ({ game }: { game: IGame }) => {
 	return (
 		<div className='w-1/6 h-[750px] flex flex-col flex-nowrap items-center gap-4 bg-blue-400 hover:bg-blue-600'>
 			<img src={game.img} className='w-full' />
-			<h1 className='text-2xl text-white text-center'>{game.name}</h1>
+			<h1 className='text-2xl text-white text-center'>{game.title}</h1>
 			<h1 className='text-xl text-white'>$ {game.lowestPrice}</h1>
 			<p>{game.genre}</p>
-			<p>{game.releaseDate.toISOString().substring(0, 10)}</p>
+			<p>{game.releaseDate}</p>
 			<p>{game.score} / 10</p>
 		</div>
 	);

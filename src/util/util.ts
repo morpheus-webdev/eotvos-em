@@ -12,8 +12,8 @@ export type GenreType =
 
 export interface IGame {
     id: string;
-    name: string;
-    releaseDate: Date;
+    title: string;
+    releaseDate: string;
     genre: GenreType;
     score: number;
     lowestPrice: number;
@@ -21,8 +21,8 @@ export interface IGame {
 }
 export const defaultGame: IGame = {
     id: '',
-    name: '',
-    releaseDate: new Date(),
+    title: '',
+    releaseDate: '',
     genre: "Action",
     score: 0.0,
     lowestPrice: 0,
@@ -62,7 +62,7 @@ export const defaultStore: IStore = {
     address: defaultAddress,
     inventory: []
 }
-
+/* 
 export const defaultGames: IGame[] = [
     {
         id: "1",
@@ -198,8 +198,8 @@ export const defaultGames: IGame[] = [
         score: 9.9,
         lowestPrice: 59.99,
         img: "https://m.media-amazon.com/images/M/MV5BN2I0N2Y3MWUtNjJiNy00NjRjLWE4ZTctOTQ2YWVhM2VhMTM4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-    },
-];
+    }
+]; 
   
 export const defaultStores: IStore[] = [
     {
@@ -283,4 +283,4 @@ export const defaultStores: IStore[] = [
       ],
     },
   ];
-  
+  */
